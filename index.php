@@ -24,24 +24,12 @@
 			<h1>
 			<?php 
 			//phpinfo();
-
+			include 'functions.php';
 			$serverName = "vischa.ddns.net";
 			$serverIP = gethostbyname($serverName);
 			$mangosPort = 3724; //Realm Handler
 			$realmPort_1 = 8085; //Realm World
 			$minecraftPort_1 = 25565; //Minecraft Server #1
-
-			function stest($ip, $portt) {
-				$fp = @fsockopen($ip, $portt, $errno, $errstr, 0.1);
-				if (!$fp) {
-					//print "Error: $errstr </br> Error #: $errno </br>"; //Troubleshooting line
-					return false;
-				} else {
-					fclose($fp);
-					return true;
-				}
-			}
-
 
 			if (stest($serverIP, $mangosPort)) { //Realm Handler
 				echo "<font color=#008800>The MaNGOS server is up!</font> </br>";
@@ -54,12 +42,19 @@
 				$wowUp = true;
 			} else {
 				echo "<font color=#CC0000>The Elwynn Forest realm is down!</font> </br>";
+				$wowUp = false;
 			}
 
 			if (stest($serverIP, $minecraftPort_1)) { //Minecraft Server #1
 				echo "<font color=#008800>The MineCraft Server is up! </font> </br>";
 			} else {
 				echo "<font color=#CC0000>The MineCraft Server is down!</font> </br>";
+			}
+			
+			if (stest($serverIP, 65022)) { //SSH port
+				echo "<font color=#008800>SSH port is Open </font> </br>";
+			} else {
+				echo "<font color=#CC0000>SSH port is Closed</font> </br>";
 			}
 			?>
 			</h1>
@@ -70,49 +65,7 @@
 			<?php
 			//echo "</br></br></br>";
 			if ($wowUp) {
-				//include 'soap.php'
-				echo "
-					<h1>World of Warcraft</h1>
-					</br>
-				";
-				$username = 'SOAPUSER';
-				$password = 'SOAPPASSWORD';
-				$host = "vischa.ddns.net";
-				$soapport = 7878;
-				$command = "server info";
-				$client = new SoapClient(NULL,
-				array(
-					"location" => "http://$host:$soapport/",
-					"uri" => "urn:MaNGOS",
-					"style" => SOAP_RPC,
-					'login' => $username,
-					'password' => $password
-				));
-				try {
-					$result = $client->executeCommand(new SoapParam($command, "command"));
-					//echo "Command succeeded! Output:<br />\n";
-					$pos = strpos($result,"Online players:");
-					//echo "position is: $pos </br>";
-					$onlineCount = substr($result, $pos, 27);
-					$pos = strpos($result,"Server uptime:");
-					$uptime = substr($result, $pos);
-					echo "
-						<h2>
-							$onlineCount </br></br>
-							$uptime </br>
-						</h2>
-					"; //End of echo
-					//echo $result;
-				}
-				catch (Exception $e)
-				{
-					echo "Command failed! Reason:<br />\n";
-					echo $e->getMessage();
-				}
-				
-				
-				
-				//echo "inside if statement";
+				include 'soap.php';				
 			}
 			//echo "</br></br> ServerUP is: $wowUp";
 
