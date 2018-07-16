@@ -1,8 +1,4 @@
 <?php
-echo "
-					<h1>World of Warcraft</h1>
-					</br>
-				";
 				$username = 'SOAPUSER';
 				$password = 'SOAPPASSWORD';
 				$host = "localhost";
@@ -25,10 +21,10 @@ echo "
 					$pos = strpos($result,"Server uptime:");
 					$uptime = substr($result, $pos);
 					echo "
-						<h2>
-							$onlineCount </br></br>
+						<h3>
+							$onlineCount </br>
 							$uptime </br>
-						</h2>
+						</h3>
 					"; //End of echo
 					//echo $result;
 				}

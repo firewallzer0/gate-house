@@ -11,7 +11,7 @@
 
 <div id="header">
 	<center>
-		<img src="img\wotlk-banner.jpg">
+		<h2>menu maybe?</h2>
 	</center>
 </div>
 <div class="colmask rightmenu">
@@ -62,6 +62,10 @@
 		</div>
 		<div class="col2">
 			<!-- Column 1 start -->
+			<center>
+				<img src="img\wotlk-logo.png" width="85%">
+				<h1>Server Stats:</h1>
+			</center>
 			<?php
 			//echo "</br></br></br>";
 			if ($wowUp) {
@@ -75,7 +79,9 @@
 	</div>
 </div>
 <div id="footer">
-	<h1>FOOTER!!!!</h1>
+	<center>
+		Last updated 2018-07-13
+	</center>
 </div>
 
 </body>
