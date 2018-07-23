@@ -1,6 +1,8 @@
 <?php
 require 'vendor/autoload.php';
 
+include 'settings/environment-var.php';
+
 //use \Psr\Http\Message\ServerRequestInterface as Request;
 //use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -13,8 +15,8 @@ $app = new \Slim\App;
 $container = $app->getContainer();
 
 $container['view'] = function ($container) {
-    $templates = '/srv/gate-house/templates';
-    return new \Slim\Views\PhpRenderer('/srv/gate-house');
+    $templates = constant("ROOTFOLDER") . '/templates';
+    return new \Slim\Views\PhpRenderer(constant("ROOTFOLDER") );
 //    return new Slim\Views\Twig($templates, compact('cache'));
 };
 
