@@ -27,7 +27,7 @@ $container['view'] = function ($container) {
 $app->get('/', function ($request, $response, $args) {
     //global $twig;
     //return $twig->render('home.twig', array( 'test_message' => '<p>--Switchfoot <\\p>' ));
-    return $this->view->render($response, 'pages/home.php' , [ 'arguments' => 'Hello World' ] );
+    return $this->view->render($response, './pages/home.php' , [ 'arguments' => 'Hello World' ] );
   });
 
 // Run application
