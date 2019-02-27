@@ -43,7 +43,7 @@ class FileExistenceResource implements SelfCheckingResourceInterface, \Serializa
     }
 
     /**
-     * @return string The file path to the resource
+     * {@inheritdoc}
      */
     public function getResource()
     {

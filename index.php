@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 
 include 'settings/environment-var.php';

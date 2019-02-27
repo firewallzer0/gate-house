@@ -1,6 +1,12 @@
 {
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "5.5.0"
+        }
+    },
     "require": {
-        "slim/slim": "^3.0", 
+        "slim/slim": "^3.0",
         "slim/php-view": "^2.2",
         "monolog/monolog": "^1.17",
         "robmorgan/phinx": "^0.5.1"
