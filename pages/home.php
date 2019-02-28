@@ -1,7 +1,7 @@
 <?php include 'subpages/header.html'; ?>
 
 <body>
-
+<?php include 'src/check-session.php'; ?>
 <div id="header">
 	<center>
 		<!--<h2>menu maybe?</h2> -->
@@ -23,19 +23,7 @@
 		</div>
 		<div class="col2">
 			<!-- Column 1 start -->
-			<center>
-				<img src="img/wotlk-logo.png" width="85%">
-				<h1>Server Stats:</h1>
-			</center>
-			<?php
-			if ($wowUp) {
-				echo "<center><font color=#008800>MaNGOS Server is Online</font> </center></br>";
-				include 'src/soap.php';
-
-			} else {
-					echo "<font color=#CC0000>MaNGOS Server is Offline</font> </br>";
-				}
-			?>
+			<?php include 'src/sidebar.php' ?>
 			<!-- Column 1 end -->
 		</div>
 	</div>

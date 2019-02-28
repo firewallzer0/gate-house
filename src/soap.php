@@ -21,10 +21,10 @@
 					$pos = strpos($result,"Server uptime:");
 					$uptime = substr($result, $pos);
 					echo "
-						<h3>
+
 							$onlineCount </br>
 							$uptime </br>
-						</h3>
+						
 					"; //End of echo
 					//echo $result;
 				}
