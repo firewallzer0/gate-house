@@ -29,11 +29,12 @@
 			</center>
 			<?php
 			if ($wowUp) {
+				echo "<center><font color=#008800>MaNGOS Server is Online</font> </center></br>";
 				include 'src/soap.php';
-			} else {
-					echo "<font color=#CC0000>MaNGOS Server is Offline</font> </br>"
-				}
 
+			} else {
+					echo "<font color=#CC0000>MaNGOS Server is Offline</font> </br>";
+				}
 			?>
 			<!-- Column 1 end -->
 		</div>
