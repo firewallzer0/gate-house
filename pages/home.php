@@ -1,10 +1,9 @@
 <?php include 'subpages/header.html'; ?>
 
 <body>
-<?php include 'src/check-session.php'; ?>
 <div id="header">
 	<center>
-		<!--<h2>menu maybe?</h2> -->
+		<h1>Vischa's Gaming Services</h1></br>
 	</center>
 </div>
 <div class="colmask rightmenu">
@@ -15,9 +14,7 @@
 			<div id="ads">
 			</div>
 			<h1>
-			<?php
-			include 'src/probe.php';
-			?>
+				<?php include 'src/probe.php'; ?>
 			</h1>
 			<!-- Column 2 end -->
 		</div>
