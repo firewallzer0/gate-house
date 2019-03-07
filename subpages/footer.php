@@ -1,5 +1,5 @@
 <div id="footer">
 	<center>
-		Last updated 2019-03-06
+		Last updated <?php echo date('Y-m-d'); ?>
 	</center>
 </div>
