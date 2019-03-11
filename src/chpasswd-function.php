@@ -8,9 +8,11 @@
     //Update Password in Database
     $userid = strtoupper($user);
     $password1 = strtoupper($password1);
-    $srp = $user, ":", $password1;
-    $passhash = sha1($srp)
-    $update = "UPDATE account SET sha_pass_hash='$passhash' WHERE username='$user' AND sha_pass_hash='$passhash';"
+    $hash = $user, ":", $password1;
+    $passhash = sha1($hash)
+    $hash = $user, ":", $oldpassword;
+    $oldpasshash = sha1($hash);
+    $update = "UPDATE account SET sha_pass_hash='$passhash' WHERE username='$user' AND sha_pass_hash='$oldpasshash';"
     $conn = new mysqli();
     mysql
     //Update V and S using SRP6 Challenge
