@@ -23,28 +23,29 @@ $container['view'] = function ($container) {
 };
 
 
-// Add route callbacks
+//Get the homepage
 $app->get('/', function ($request, $response, $args) {
   global $serverName, $serverIP, $mangosPort, $realmPort_1, $minecraftPort_1;
-    $Mangos_status = "<font color=#CC0000>The MaNGOS server is down!</font> </br>";
-    $Elwynn_Forest_status = "<font color=#CC0000>The Elwynn Forest realm is down!</font> </br>";
-    $Minecraft_status = "<font color=#CC0000>The MineCraft Server is down!</font> </br>";
-    $SSH_status = "<font color=#CC0000>SSH port is Closed</font> </br>";
+    $Mangos_status = "<span class=\"statitem-disabled\">" . "The MaNGOS server is down!" . "</span>";
+    $Elwynn_Forest_status = "<span class=\"statitem-disabled\">" . "The Elwynn Forest realm is down!" . "</span>";
+    $Minecraft_status = "<span class=\"statitem-disabled\">" . "The MineCraft Server is down!" . "</span>";
+    $SSH_status = "<span class=\"statitem-disabled\">" . "SSH port is Closed" . "</span>";
 
     if (stest($serverIP, $mangosPort)) { //Realm Handler
-      $Mangos_status = "The MaNGOS server is up!";
+    //if (false) {
+      $Mangos_status = "<span class=\"statitem\">" . "The MaNGOS server is up!" . "</span>";
     } 
 
     if (stest($serverIP, $realmPort_1)) { //Realm World
-      $Elwynn_Forest_status = "The Elwynn Forest realm is up!";
+      $Elwynn_Forest_status = "<span class=\"statitem\">" . "The Elwynn Forest realm is up!" . "</span>";
     }
 
     if (stest($serverIP, $minecraftPort_1)) { //Minecraft Server #1
-      $Minecraft_status = "The MineCraft Server is up!";
+      $Minecraft_status = "<span class=\"statitem\">" . "The MineCraft Server is up!" . "</span>";
     }
 
     if (stest($serverIP, 65022)) { //SSH port
-      $SSH_status = "SSH port is Open";
+      $SSH_status = "<span class=\"statitem\">" . "SSH port is Open" . "</span>";
     } 
 
     $stats = wow_server_stats();
@@ -59,7 +60,28 @@ $app->get('/', function ($request, $response, $args) {
       ] );
   });
 
+
+//TODO: 
+//output: returns stats data in json
+$app->get('/stats', function ($request, $response, $args) {
+});
+
+//TODO:
+//output: loads the login page
+$app->get('/login', function ($request, $response, $args) {
+});
+
+//TODO: 
+//output: loads the change password form
+$app->get('/change-password-form', function ($request, $response, $args) {
+});
+
+//TODO: 
+//output: processes the change password data and command
+$app->get('/update-password', function ($request, $response, $args) {
+});
+
+
 // Run application
 $app->run();
-
 ?>
